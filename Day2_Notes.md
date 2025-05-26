@@ -1,5 +1,6 @@
 ✅ What is JavaScript?
 JavaScript is the brain of a website.
+// When you click a button and get alert → JS does it!
 
 HTML = Skeleton 🦴
 
@@ -22,7 +23,7 @@ let = reusable dabba (you can change the item inside)
 
 const = sealed dabba (you can’t change it)
 
-var = old style dabba (we avoid this now)
+var = old style dabba (we avoid this now), var has weird hoisting issues
 
 🧪 Data Types (Kinds of Dabba Contents)
 Type	Example	Meaning
