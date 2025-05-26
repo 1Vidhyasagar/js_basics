@@ -1,0 +1,28 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Day 4 - JS Objects, DOM, Events</title>
+</head>
+<body>
+  <h2 id="greet">Hello!</h2>
+  <button id="changeText">Change Greeting</button>
+
+  <script>
+    // 🧱 1. Creating an object (dabba with info)
+    let user = {
+      name: "Vidhyasagar",
+      city: "Bangalore"
+    };
+
+    // 🌐 2. Accessing an HTML element (DOM)
+    let greetTag = document.getElementById("greet");
+
+    // 🖱️ 3. Adding click event (Event Listener)
+    document.getElementById("changeText").addEventListener("click", function() {
+      // Change the text using object values
+      greetTag.innerText = "Welcome, " + user.name + " from " + user.city + "!";
+    });
+  </script>
+</body>
+</html>

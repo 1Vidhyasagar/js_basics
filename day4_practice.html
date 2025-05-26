@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Day 4 Practice - DOM + Objects + Events</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+      background-color: #f9f9f9;
+    }
+    #colorBtn {
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>🧠 DOM + Events Practice</h2>
+
+  <!-- 1. User input box -->
+  <input id="nameInput" placeholder="Enter your name..." />
+  <button id="sayHiBtn">Say Hi</button>
+
+  <!-- 2. Text to change -->
+  <p id="message">Your message will appear here...</p>
+
+  <!-- 3. Button to change background color -->
+  <button id="colorBtn">🎨 Change Background Color</button>
+
+  <!-- 4. Button to show object -->
+  <button id="showDetailsBtn">📦 Show My Details</button>
+
+  <script>
+    // 🧱 Object with your details
+    let person = {
+      name: "Vidhyasagar",
+      age: 29,
+      job: "Future Full Stack AI Developer"
+    };
+
+    // 🎯 Say Hi Button Click
+    document.getElementById("sayHiBtn").addEventListener("click", function() {
+      let userInput = document.getElementById("nameInput").value;
+      let message = "👋 Hello, " + userInput + "! Welcome!";
+      document.getElementById("message").innerText = message;
+    });
+
+    // 🎨 Change Background Color
+    document.getElementById("colorBtn").addEventListener("click", function() {
+      document.body.style.backgroundColor = "lightblue";
+    });
+
+    // 📦 Show Object Details
+    document.getElementById("showDetailsBtn").addEventListener("click", function() {
+      alert("👤 Name: " + person.name + "\nAge: " + person.age + "\nJob: " + person.job);
+    });
+  </script>
+
+</body>
+</html>
