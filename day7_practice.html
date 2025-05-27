@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>🧠 Day 7 Homework - Super Card Creator</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      padding: 20px;
+    }
+
+    input, button {
+      padding: 8px;
+      margin: 5px;
+    }
+
+    .card {
+      border: 2px solid #000;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 10px;
+      background-color: #f0f0f0;
+    }
+
+    .product-img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>✨ Super Card Creator</h1>
+
+  <h2>👤 Profile Card</h2>
+  <input id="nameInput" placeholder="Enter Name" />
+  <input id="jobInput" placeholder="Enter Job" />
+  <input id="bgColorInput" placeholder="Card Color (e.g. pink, #ffeeaa)" />
+  <button id="makeProfileCard">➕ Make Profile Card</button>
+
+  <h2>🛒 Product Card</h2>
+  <input id="productName" placeholder="Product Name" />
+  <input id="productPrice" placeholder="Price" />
+  <input id="productImg" placeholder="Image URL" />
+  <input id="productBg" placeholder="Card Color" />
+  <button id="makeProductCard">🛍️ Make Product Card</button>
+
+  <hr />
+
+  <div id="cardContainer"></div>
+
+  <script>
+    const nameInput = document.getElementById("nameInput");
+    const jobInput = document.getElementById("jobInput");
+    const bgColorInput = document.getElementById("bgColorInput");
+    const makeProfileCard = document.getElementById("makeProfileCard");
+
+    const productName = document.getElementById("productName");
+    const productPrice = document.getElementById("productPrice");
+    const productImg = document.getElementById("productImg");
+    const productBg = document.getElementById("productBg");
+    const makeProductCard = document.getElementById("makeProductCard");
+
+    const cardContainer = document.getElementById("cardContainer");
+
+    // 🔹 Function to add delete button
+    function addDeleteButton(card) {
+      const deleteBtn = document.createElement("button");
+      deleteBtn.innerText = "🗑️ Delete";
+      deleteBtn.style.marginTop = "10px";
+      deleteBtn.onclick = function () {
+        card.remove();
+      };
+      card.appendChild(deleteBtn);
+    }
+
+    // 👤 Profile card creator
+    makeProfileCard.addEventListener("click", function () {
+      const name = nameInput.value;
+      const job = jobInput.value;
+      const bg = bgColorInput.value || "#f0f0f0";
+
+      const card = document.createElement("div");
+      card.className = "card";
+      card.style.backgroundColor = bg;
+      card.innerHTML = `<h2>👤 ${name}</h2><p>💼 ${job}</p>`;
+      addDeleteButton(card);
+      cardContainer.appendChild(card);
+
+      // Clear inputs
+      nameInput.value = "";
+      jobInput.value = "";
+      bgColorInput.value = "";
+    });
+
+    // 🛒 Product card creator
+    makeProductCard.addEventListener("click", function () {
+      const name = productName.value;
+      const price = productPrice.value;
+      const imgUrl = productImg.value;
+      const bg = productBg.value || "#e0ffe0";
+
+      const card = document.createElement("div");
+      card.className = "card";
+      card.style.backgroundColor = bg;
+      card.innerHTML = `
+        <h2>🛒 ${name}</h2>
+        <p>💰 ₹${price}</p>
+        <img class="product-img" src="${imgUrl}" alt="${name}" />
+      `;
+      addDeleteButton(card);
+      cardContainer.appendChild(card);
+
+      // Clear inputs
+      productName.value = "";
+      productPrice.value = "";
+      productImg.value = "";
+      productBg.value = "";
+    });
+  </script>
+</body>
+</html>
